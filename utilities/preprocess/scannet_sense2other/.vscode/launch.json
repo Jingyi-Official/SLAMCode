@@ -1,0 +1,18 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "python": "/home/wanjingyi/Documents/codes/miniconda3/envs/isdf_env/bin/python",
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": ["--filename", "/home/wanjingyi/Documents/iSDF/data/seqs/scene0004_00/scene0004_00.sens", "--output_path", "/home/wanjingyi/Documents/iSDF/data/seqs/scene0004_00/", "--export_depth_images","--export_color_images","--export_poses","--export_intrinsics"],
+        }
+    ]
+}

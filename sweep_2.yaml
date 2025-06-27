@@ -1,0 +1,24 @@
+program: main.py
+project: test
+method: random
+metric:
+  name: cache_l1_error_avg
+  goal: minimize
+parameters:
+
+  trainer:
+    values: [base]
+  
+  optimizer.lr:
+    values: [0.0001, 0.0005, 0.001, 0.005, 0.01, 0.05, 0.1]
+
+command:
+  - ${env}
+  - python
+  - ${program}
+  - device=2
+  - dataset=replica
+  - model=isdf
+  - trainer.grad_weight=0
+  - group=base_${optimizer.lr}
+  - ${args_no_hyphens}

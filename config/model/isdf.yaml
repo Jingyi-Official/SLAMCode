@@ -1,0 +1,23 @@
+_target_: model.isdf.ISDF
+scale_output: 0.14
+scale_input: 0.05937489
+transform_input: None
+
+positional_encoder:
+  _target_: model.encoder.positional_encoder.mip_nerf_360.PositionalEncoding
+  in_dim: 3
+  min_deg: 0
+  max_deg: 5
+  n_freqs: 6
+  freq_factor: 1
+  include_input: True
+
+decoder:
+ _target_: model.decoder.mlp.MLP
+ _partial_: True
+ num_layers: 7
+ layer_width: 256
+ out_dim: 1
+ skip_connections: [3]
+ 
+

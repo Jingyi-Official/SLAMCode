@@ -1,0 +1,24 @@
+program: main.py
+project: uniform
+method: random
+metric:
+  name: cache_l1_error_avg
+  goal: minimize
+parameters:
+
+  trainer:
+    values: [gt_uniform]
+  
+  optimizer.lr:
+    values: [0.0001, 0.0005, 0.0006, 0.0007, 0.0008, 0.0009]
+
+command:
+  - ${env}
+  - python
+  - ${program}
+  - device=0
+  - dataset=replica
+  - model=tensorf
+  - trainer.grad_weight=0
+  - group=gt_uniform_${optimizer.lr}
+  - ${args_no_hyphens}

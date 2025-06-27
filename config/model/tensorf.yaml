@@ -1,0 +1,14 @@
+_target_: model.tensorf.TensoRF
+scale_input: 0.05937489
+transform_input: None
+scale_output: 0.14
+
+positional_encoder:
+  _target_: model.encoder.positional_encoder.identity.PositionalEncoding
+  in_dim: 3
+
+decoder: 
+  _target_: model.decoder.vm.VMDecoding
+  resolution: 256
+  num_components: 16
+  init_scale: 0.1

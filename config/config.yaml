@@ -1,0 +1,53 @@
+project: test
+# group: ${model.spatial_decoder.num_layers}_${model.spatial_decoder.layer_width}_${model.spatial_decoder.out_dim}_${optimizer.lr}_${trainer.trunc_weight}_${trainer.eik_weight}
+group: test
+tags: ["${hydra:runtime.choices.dataset}", "${hydra:runtime.choices.model}", "${hydra:runtime.choices.trainer}"]
+seed: 1234
+device: 0
+defaults:
+  - _self_
+  - dataset: replica
+  - model: mlpf
+  - optimizer: AdamW
+  - trainer: gt
+  - callback: default
+  - logger: wandb
+  - evaluator: base
+comments: test
+
+hydra:
+  run:
+    dir: /media/HDD2/jingyi/outputs/${project}/${group}/${hydra.runtime.choices.dataset}/${hydra.runtime.choices.model}/${hydra.runtime.choices.trainer}/
+
+
+
+
+# hydra:
+#   sweep:
+#     dir: multirun
+#     subdir: ${hydra.job.override_dirname}
+
+# project: io_test
+# defaults:
+#   - _self_
+#   - dataset: replica
+#   - model: simple_model
+#   - optimizer: adamw
+#   - loss: cross_entropy
+#   - metric: accuracy
+#   - trainer: default_trainer
+#   - logging: loggers
+#   - scheduler: plateau
+#   - callbacks: callbacks
+#   - private: custom
+#   - augmentation: basic_augs
+#   - inference: basic
+#   - override hydra/hydra_logging: colorlog
+#   - override hydra/job_logging: colorlog
+
+# hydra:
+#   run:
+#     dir: outputs/${now:%Y-%m-%d_%H-%M-%S} #_${hydra.job.override_dirname}
+#   sweep:
+#     dir: outputs/${now:%Y-%m-%d_%H-%M-%S}
+#     subdir: ${now:%Y-%m-%d_%H-%M-%S}_${hydra.job.num}_${datamodule.fold_n}

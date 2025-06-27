@@ -1,0 +1,13 @@
+_target_: evaluator.base.BaseEvaluator
+n_samples: 200000
+interval: 5
+min_depth_eval_visible: 0.07
+dist_behind_surf_eval_visible: 0.1
+n_strat_samples_eval_visible: 1
+n_surf_samples_eval_visible: 0
+strat_bin_len: null
+surf_std: 0.1
+noise_std: 0
+grid_dim: [200, 200, 200]
+grid_res: null
+save_dir: ${hydra:runtime.output_dir}

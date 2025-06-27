@@ -1,0 +1,16 @@
+_target_: dataset.scannet.ScanNetDataset
+root_dir: /media/wanjingyi/Diskroom/iSDF/data/seqs/scene0004_00
+rgb_K_file: rgb_K_file.txt
+depth_K_file: depth_K_file.txt
+T_file: traj.txt 
+
+rgb_transform:
+  _target_: utilities.transforms.image_transforms.Image_Transforms
+depth_transform: 
+  _target_: utilities.transforms.depth_transforms.Depth_Transforms
+  scale: 1000.0
+  max_depth: 12
+
+scene_folder: /media/wanjingyi/Diskroom/iSDF/data/gt_sdfs/scene0004_00
+
+
